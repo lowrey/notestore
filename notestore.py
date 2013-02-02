@@ -22,8 +22,8 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
     dest = options.dest
     set_v(options.verbose)
-    print("Using pad name {}".format(options.dest))
-    if not options.get:
-        post_op(dest, options)
-    else:
+    if options.get:
         get_op(dest, options)
+    else:
+        print("Using pad name {}".format(options.dest))
+        post_op(dest, options)
